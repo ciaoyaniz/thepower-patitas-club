@@ -1,0 +1,14 @@
+network:
+  version: 2
+  ethernets:
+    ens33:
+      dhcp4: true
+      dhcp4-overrides:
+        use-dns: false
+    ens34:
+      dhcp4: false
+      addresses:
+        - 192.168.50.10/24
+      nameservers:
+        addresses: [127.0.0.1]
+        search: [patitas.lan]

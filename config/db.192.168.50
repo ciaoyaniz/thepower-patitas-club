@@ -1,0 +1,12 @@
+$TTL 86400
+@       IN  SOA srv-patitas.patitas.lan. admin.patitas.lan. (
+                2026111001  ; número de serie (AAAAMMDDNN)
+                3600        ; refresco
+                900         ; reintento
+                604800      ; caducidad
+                86400 )     ; TTL de las respuestas negativas
+
+@       IN  NS      srv-patitas.patitas.lan.
+
+10      IN  PTR     srv-patitas.patitas.lan.
+20      IN  PTR     pc-recepcion.patitas.lan.
