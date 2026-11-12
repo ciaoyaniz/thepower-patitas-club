@@ -1,0 +1,13 @@
+# Secretos y credenciales
+.env
+*.key
+*.pem
+.htpasswd
+
+# Copias de seguridad y volcados
+*.sql.gz
+*.tar.gz
+
+# Archivos del editor y de Python
+.vscode/
+__pycache__/
