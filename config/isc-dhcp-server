@@ -1,0 +1,3 @@
+# Tarjetas en las que escucha el servidor DHCP. Solo la red del negocio
+INTERFACESv4="ens34"
+INTERFACESv6=""
