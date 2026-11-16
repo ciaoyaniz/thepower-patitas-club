@@ -1,0 +1,16 @@
+[DEFAULT]
+# Mi PC no se bloquea nunca para no quedarme fuera del servidor
+ignoreip = 127.0.0.1/8 192.168.50.1
+bantime = 30m
+findtime = 10m
+maxretry = 5
+
+[sshd]
+enabled = true
+
+[apache-auth]
+enabled = true
+port = http,https
+# Ubuntu usa el journal por defecto y así no leería el logpath
+backend = auto
+logpath = /var/log/apache2/patitas-error.log
