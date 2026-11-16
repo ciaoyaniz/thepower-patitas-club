@@ -1,0 +1,87 @@
+/* Hoja de estilos de Patitas Club. Primero el móvil y después las pantallas anchas */
+
+:root {
+    --fondo: #faf8f5;
+    --texto: #3a3530;
+    --marca: #e0652a;
+    --borde: #ddd6cc;
+    --libre: #e6f3e6;
+    --pocos: #fbf1d6;
+    --completo: #eeeae5;
+    --alerta: #c8463c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--texto);
+    background: var(--fondo);
+}
+
+main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+
+.cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: .75rem 1rem;
+    background: var(--marca);
+}
+.cabecera a { color: #fff; text-decoration: none; margin-right: 1rem; }
+.cabecera .marca { font-size: 1.3rem; font-weight: bold; }
+.cabecera .usuario { color: #fff; font-style: italic; }
+
+.pie { text-align: center; padding: 1rem; font-size: .85rem; color: #8a837b; }
+
+h1 { font-size: 1.5rem; }
+
+/* Servicios y calendario de la página pública */
+.servicios { list-style: none; padding: 0; }
+.servicios li { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid var(--borde); }
+
+.calendario { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+.dia { display: flex; flex-direction: column; padding: .75rem; border-radius: 6px; border: 1px solid var(--borde); }
+.dia .fecha { font-weight: bold; text-transform: capitalize; }
+.dia.libre { background: var(--libre); }
+.dia.pocos { background: var(--pocos); }
+.dia.completo { background: var(--completo); color: #8a837b; }
+
+/* Formularios */
+.formulario { display: grid; gap: .75rem; max-width: 520px; }
+fieldset { border: 1px solid var(--borde); border-radius: 6px; display: grid; gap: .5rem; }
+label { display: grid; gap: .25rem; }
+label.casilla { display: flex; gap: .5rem; align-items: flex-start; }
+input, select, textarea, button { font: inherit; padding: .5rem; border: 1px solid var(--borde); border-radius: 4px; }
+button { background: var(--marca); color: #fff; border: none; cursor: pointer; }
+button.secundario { background: #8a837b; }
+.filtro { display: flex; gap: .5rem; align-items: flex-end; margin-bottom: 1rem; }
+
+.aviso { padding: .75rem 1rem; border-radius: 6px; }
+.aviso.ok { background: var(--libre); }
+.aviso.error { background: #fbecea; color: var(--alerta); }
+
+/* Tablas de la zona del equipo */
+.tabla { width: 100%; border-collapse: collapse; background: #fff; }
+.tabla th, .tabla td { padding: .5rem; border-bottom: 1px solid var(--borde); text-align: left; vertical-align: top; }
+.tabla td.alerta { color: var(--alerta); font-weight: bold; }
+.acciones { display: flex; gap: .25rem; flex-wrap: wrap; }
+.estado { padding: .1rem .5rem; border-radius: 10px; background: var(--completo); }
+.estado.confirmada { background: var(--libre); }
+.estado.pendiente { background: var(--pocos); }
+
+/* En el móvil la tabla se lee fila a fila */
+@media (max-width: 640px) {
+    .tabla thead { display: none; }
+    .tabla tr { display: block; border-bottom: 2px solid var(--borde); }
+    .tabla td { display: block; border: none; }
+}
+
+@media (min-width: 720px) {
+    .calendario { grid-template-columns: repeat(7, 1fr); }
+}
