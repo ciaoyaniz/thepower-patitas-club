@@ -17,6 +17,7 @@ Un solo servidor Ubuntu Server 24.04 (`srv-patitas`, `192.168.50.10`) da DNS, DH
 | `config/smb-oficina.conf` | Recurso compartido `oficina` de Samba |
 | `config/jail.local` | Jaulas de fail2ban para SSH y para la zona del equipo |
 | `config/crontab-root` | Copia de seguridad a las 2:00 y resumen diario a las 8:30 |
+| `config/patitas-red.pkt` | Red del local en Cisco Packet Tracer: router, switch, puntos de acceso y las dos VLAN |
 | `sql/patitas.sql` | Base de datos: tablas, índice, vista y datos de prueba |
 | `web/` | Aplicación web en PHP. `public/` es lo único que publica Apache |
 | `scripts/crear_usuarios_bd.sh` | Usuarios de MariaDB con contraseñas aleatorias guardadas en `/etc/patitas` |
@@ -25,11 +26,20 @@ Un solo servidor Ubuntu Server 24.04 (`srv-patitas`, `192.168.50.10`) da DNS, DH
 | `scripts/backup_patitas.sh`, `scripts/restaurar_bd.sh` | Copia de seguridad y restauración |
 | `scripts/resumen_diario.sh`, `scripts/resumen_diario.py` | Informe diario con la agenda y los clientes para llamar |
 | `scripts/comprobacion_final.sh` | Repasa todos los servicios y dice OK o FALLO |
-| `memoria/` | Memoria del proyecto, diagramas y diario de trabajo |
+| `docs/` | Documentación del proyecto en PDF (ver la tabla siguiente) |
+
+## Documentación
+
+| Archivo | Qué contiene |
+|---|---|
+| [`docs/anteproyecto-patitasclub-entrega-00.pdf`](anteproyecto-patitasclub-entrega-00.pdf) | Anteproyecto: idea, necesidad, solución propuesta y planificación inicial |
+| [`docs/memoria-patitasclub-entrega-50.pdf`](memoria-patitasclub-entrega-50.pdf) | Primera entrega parcial (50 %): análisis y diseño, planificación y presupuesto |
+| [`docs/memoria-patitasclub-entrega-85.pdf`](memoria-patitasclub-entrega-85.pdf) | Segunda entrega parcial (85 %): desarrollo e implementación paso a paso, y despliegue en el local |
+| [`docs/diario-patitasclub-entrega-85.pdf`](diario-patitasclub-entrega-85.pdf) | Diario de trabajo: horas por bloque y comparación con la planificación |
 
 ## Instalación rápida
 
-La instalación completa, con el porqué de cada paso, está en la memoria (apartado 7). Este es el orden sobre un Ubuntu Server 24.04 con la IP `192.168.50.10` en `ens34`, desde la raíz del repositorio:
+La instalación completa, con el porqué de cada paso, está en la memoria (apartado 7 de [`docs/memoria-patitasclub-entrega-85.pdf`](memoria-patitasclub-entrega-85.pdf)). Este es el orden sobre un Ubuntu Server 24.04 con la IP `192.168.50.10` en `ens34`, desde la raíz del repositorio:
 
 1. SSH: copiar `config/10-patitas.conf` a `/etc/ssh/sshd_config.d/` y reiniciar `ssh`.
 2. DNS: `apt install bind9 bind9-dnsutils`, copiar los cuatro archivos de Bind9 a `/etc/bind/` y la red de `config/netplan-srv-patitas.yaml` a `/etc/netplan/50-cloud-init.yaml`.
