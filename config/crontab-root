@@ -1,0 +1,8 @@
+# Tareas programadas de root en srv-patitas
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Copia de seguridad cada noche a las 2:00
+0 2 * * * /usr/local/sbin/backup_patitas.sh
+
+# Resumen diario de lunes a sábado a las 8:30
+30 8 * * 1-6 /usr/local/sbin/resumen_diario.sh
